@@ -28,6 +28,19 @@ async def add(ctx, left : int, right : int):
 @bot.command()
 async def dunst(ctx, sentance):
     """Dunstifies a sentance"""
+
+    def dunst (sent):  
+        res = ""    
+        for idx in range(len(sent)):
+            if not idx % 2 :
+                res = res + sent[idx].upper()
+            else:
+                res = res + sent[idx].lower()
+        return(res)
+    # printing result
+    print("The alternate case string is : " + dunst(sentance))
+
+
     await ctx.send(sentance)
 
 bot.run(TOKEN)
