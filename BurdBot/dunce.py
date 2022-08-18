@@ -1,7 +1,6 @@
+#sentance = input('Enter sentance:\n')
 
-sentance = input('Enter sentance:\n')
-
-def dunce (sent):  
+def duncey (sent):  
     res = ""    
     for idx in range(len(sent)):
         if not idx % 2 :
