@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
 
-TOKEN = 'ODcxMTc1MzYyMjg4MTc3MTUy.Guj9Z5.X019d4u7XflxJ8YnDz6auRldF7f0xLD5o7dFwQ'
+# Remove Token before commiting 
+TOKEN = ''
 
 description = '''ninjaBot in Python'''
 bot = commands.Bot(command_prefix='?', description=description)
