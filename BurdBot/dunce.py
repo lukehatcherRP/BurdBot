@@ -1,7 +1,7 @@
 
 sentance = input('Enter sentance:\n')
 
-def dunst (sent):  
+def dunce (sent):  
     res = ""    
     for idx in range(len(sent)):
         if not idx % 2 :
@@ -11,7 +11,7 @@ def dunst (sent):
     return(res)
 
 # printing result
-print("The alternate case string is : " + dunst(sentance))
+# print("The alternate case string is : " + dunst(sentance))
 
 
 

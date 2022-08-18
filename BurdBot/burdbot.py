@@ -1,9 +1,9 @@
-from BurdBot.dunst import dunst
+from dunce import dunce
 import discord
 from discord.ext import commands
 
 # Remove Token before commiting 
-TOKEN = ''
+TOKEN = 'ODcxMTc1MzYyMjg4MTc3MTUy.GwPiAP.5ROuUdGni-wyNScdlm7CQc85NlAdHvpfMPj6hc'
 
 description = '''ninjaBot in Python'''
 bot = commands.Bot(command_prefix='?', description=description)
@@ -28,8 +28,8 @@ async def add(ctx, left : int, right : int):
     await ctx.send(left + right)
 
 @bot.command()
-async def dunstify(ctx, sentance):
+async def dunce(ctx, *, sentance):
     """DuNsTiFiEs a SeNtAnCe"""
-    await ctx.send(dunst(sentance))
+    await ctx.send(dunce(sentance))
 
 bot.run(TOKEN)
