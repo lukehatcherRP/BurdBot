@@ -1,3 +1,4 @@
+from BurdBot.dunst import dunst
 import discord
 from discord.ext import commands
 
@@ -27,21 +28,8 @@ async def add(ctx, left : int, right : int):
     await ctx.send(left + right)
 
 @bot.command()
-async def dunst(ctx, sentance):
-    """Dunstifies a sentance"""
-
-    def dunst (sent):  
-        res = ""    
-        for idx in range(len(sent)):
-            if not idx % 2 :
-                res = res + sent[idx].upper()
-            else:
-                res = res + sent[idx].lower()
-        return(res)
-    # printing result
-    print("The alternate case string is : " + dunst(sentance))
-
-
-    await ctx.send(sentance)
+async def dunstify(ctx, sentance):
+    """DuNsTiFiEs a SeNtAnCe"""
+    await ctx.send(dunst(sentance))
 
 bot.run(TOKEN)

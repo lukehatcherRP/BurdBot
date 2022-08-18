@@ -15,4 +15,4 @@ print("The alternate case string is : " + dunst(sentance))
 
 
 
-input()
+#input() 
