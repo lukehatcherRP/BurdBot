@@ -97,8 +97,24 @@ async def add(ctx, left : int, right : int):
     await ctx.send(left + right)
 
 @bot.command()
-async def dunce(ctx, *, sentance):
-    """DuNcEsTiFiEs a SeNtAnCe"""
-    await ctx.send(duncey(sentance))
+async def dunce(ctx):
+    """DuNcEsTiFiEs the PrEvIoUs MeSsAgE"""
+    # Get the message history, excluding the current command message
+    messages = []
+    async for message in ctx.channel.history(limit=2):
+        messages.append(message)
+    
+    # The first message is the current command, the second is the previous message
+    if len(messages) < 2:
+        await ctx.send("No previous message found to dunce!")
+        return
+    
+    previous_message = messages[1]
+    
+    # Apply duncey to the previous message content
+    dunced_content = duncey(previous_message.content)
+    
+    # Reply to the previous message
+    await previous_message.reply(dunced_content)
 
 bot.run(TOKEN)
