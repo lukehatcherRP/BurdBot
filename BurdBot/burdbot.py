@@ -13,6 +13,7 @@ description = '''ninjaBot in Python'''
 # Set up intents for the bot
 intents = discord.Intents.default()
 intents.message_content = True  # Required to read message content
+intents.reactions = True  # Required to handle reactions
 
 bot = commands.Bot(command_prefix='?', description=description, intents=intents)
 
@@ -83,6 +84,30 @@ async def on_message(message):
     
     # Process commands after checking for trash
     await bot.process_commands(message)
+
+@bot.event
+async def on_reaction_add(reaction, user):
+    # Don't respond to our own reactions
+    if user == bot.user:
+        return
+    
+    # Check if the reaction is the mockingspongebob emote
+    # This could be a custom emoji named "mockingspongebob" or a Unicode emoji
+    emote_name = None
+    if hasattr(reaction.emoji, 'name'):
+        emote_name = reaction.emoji.name
+    else:
+        emote_name = str(reaction.emoji)
+    
+    # Check for mockingspongebob emote (could be custom emoji or Unicode)
+    if emote_name == 'mockingspongebob' or emote_name == '🤡':
+        try:
+            # Apply duncey to the reacted message content
+            if reaction.message.content:  # Only process if message has content
+                dunced_content = duncey(reaction.message.content)
+                await reaction.message.reply(dunced_content)
+        except Exception as e:
+            print(f"Error processing dunce reaction: {e}")
 
 
 @bot.command()
