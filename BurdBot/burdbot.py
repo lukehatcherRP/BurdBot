@@ -34,7 +34,7 @@ async def get_random_trash_gif():
         if tenor_api_key and tenor_api_key != "YOUR_TENOR_API_KEY_HERE":
             url = "https://tenor.googleapis.com/v2/search"
             params = {
-                "q": "trash garbage",
+                "q": "trash",
                 "key": tenor_api_key,
                 "limit": 20,
                 "contentfilter": "medium"
