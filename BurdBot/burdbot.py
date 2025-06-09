@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 
 # Remove Token before commiting 
-TOKEN = 'ODcxMTc1MzYyMjg4MTc3MTUy.GYWkFb.OxmNDXe5I756-vC_vsassnbrnDrQCJL_Ng1A_s'
+TOKEN = os.getenv("TOKEN")
 
 description = '''ninjaBot in Python'''
 
@@ -28,7 +28,7 @@ async def on_message(message):
         return
     
     # Check if the message contains trash keywords (case-insensitive)
-    trash_keywords = ['trash', 'garbage', 'garb', 'tra']
+    trash_keywords = ['trash', 'garbage']
     if any(keyword in message.content.lower() for keyword in trash_keywords):
         try:
             await message.add_reaction('🗑️')
