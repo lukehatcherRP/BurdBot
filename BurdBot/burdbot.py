@@ -1,3 +1,4 @@
+import os
 from dunce import duncey
 import discord
 from discord.ext import commands
